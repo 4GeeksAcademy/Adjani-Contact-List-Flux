@@ -12,7 +12,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			saludo: "Hola",
+			contacts: [{
+				Full_name: "Adjani Tirado",
+				email: "nani@gmail.com"
+			},
+			{
+				Full_name: "Paul Tirado",
+				email: "paul@gmail.com"
+
+			}]
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -24,10 +34,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					fetch().then().then(data => setStore({ "foo": data.bar }))
 				*/
 			},
+			eliminar: (indexDelete) => {
+				console.log("Eliminar desde flux");
+				const store = getStore();
+				console.log(store.contacts);
+				console.log(store.contacts.filter((item, index) => index != indexDelete))
+			},
+
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
-
 				//we have to loop the entire demo array to look for the respective index
 				//and change its color
 				const demo = store.demo.map((elm, i) => {
