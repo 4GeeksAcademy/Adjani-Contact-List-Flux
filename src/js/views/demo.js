@@ -10,7 +10,6 @@ export const Demo = () => {
 	
 	function eliminar(indexDelete) {
 		console.log("eliminó" + indexDelete);
-		console.log(store.contacts);
 		console.log(store.contacts.filter((item,index) => index != indexDelete )
 		);
 	}

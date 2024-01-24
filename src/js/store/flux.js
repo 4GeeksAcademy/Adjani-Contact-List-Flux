@@ -14,31 +14,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			saludo: "Hola",
-			contacts: [{
-				Full_name: "Adjani Tirado",
-				email: "nani@gmail.com"
-			},
-			{
-				Full_name: "Paul Tirado",
-				email: "paul@gmail.com"
-
-			}]
+			contacts: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+				fetch(`https://playground.4geeks.com/apis/fake/contact/agenda/contactos_adjani`)
+				.then((response) => response.json())
+				.then(data => setStore({contacts: data}))
 			},
+
 			eliminar: (indexDelete) => {
 				console.log("Eliminar desde flux");
 				const store = getStore();
 				console.log(store.contacts);
 				console.log(store.contacts.filter((item, index) => index != indexDelete))
+				setStore({contacts: store.contacts.filter((item, index) => index != indexDelete)})
 			},
 
 			changeColor: (index, color) => {
