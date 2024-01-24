@@ -50,6 +50,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 							.then(data => setStore({ contacts: data }))
 					})
 			},
+			
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();

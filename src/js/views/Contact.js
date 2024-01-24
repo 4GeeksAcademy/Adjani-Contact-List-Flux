@@ -33,7 +33,7 @@ export const Contacts = () => {
 											<Link to={"/Edit/"+ item.id}>
 											<button><FontAwesomeIcon icon={faPencil} className="pencil"/></button>
 											</Link>
-											<button onClick={() => actions.deleteContact(item.id)}><FontAwesomeIcon icon={faTrashCan} className="trash"/></button>
+											<button onClick={() => actions.eliminar(item.id)}><FontAwesomeIcon icon={faTrashCan} className="trash"/></button>
 										</div>
 									</div>
 								</div>
