@@ -40,7 +40,7 @@ export const Demo = () => {
 							{/* <button className="fa-solid fa-pencil" onClick={editar} >
 								Editar
 							</button> */}
-							<button className="btn btn-success" onClick={()=>actions.eliminar(index)} style={{ marginLeft: "30px"}}>
+							<button className="btn btn-success" onClick={()=>actions.eliminar(item.id)} style={{ marginLeft: "30px"}}>
 								Eliminar
 							</button>
 						</div>

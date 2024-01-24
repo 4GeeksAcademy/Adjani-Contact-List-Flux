@@ -29,11 +29,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			eliminar: (indexDelete) => {
-				console.log("Eliminar desde flux");
 				const store = getStore();
-				console.log(store.contacts);
 				console.log(store.contacts.filter((item, index) => index != indexDelete))
+				
 				setStore({contacts: store.contacts.filter((item, index) => index != indexDelete)})
+				
+				var requestOptions = {
+					method: 'DELETE',
+					redirect: 'follow'
+				  };
+				  
+				fetch("https://playground.4geeks.com/apis/fake/contact/" + indexDelete, requestOptions)
+				.then(response => response.text())
+				.then(result => console.log(result))
+				.then(() => {
+					fetch(`https://playground.4geeks.com/apis/fake/contact/agenda/contactos_adjani`)
+					.then((response) => response.json())
+					.then(data => setStore({contacts: data}))
+				})
 			},
 
 			changeColor: (index, color) => {
