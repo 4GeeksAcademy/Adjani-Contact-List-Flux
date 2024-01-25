@@ -20,6 +20,7 @@ export const AddContact = (props) => {
 			phone: phone };
 
         function saveButton () {
+            e.preventDefault();
             if (props.opt == "add") {
                 return actions.crear(newContact)
             }
@@ -71,7 +72,7 @@ export const AddContact = (props) => {
                 <input value= {address} onChange={(e) => {setAddress(e.target.value)}} name="Address" type="tel" className="form-control" placeholder="Enter address" />
             </div>
 			<div className="d-grid gap-2">
-                <button onClick={() => saveButton()} className="btn btn-primary mx-5 mt-3">Save</button>
+                <button onClick={(e) => saveButton(e)} className="btn btn-primary mx-5 mt-3">Save</button>
 				<Link to="/" className="ms-5">
 					or get back to contacts
 				</Link>
